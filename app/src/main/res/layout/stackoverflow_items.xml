@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.src.mysampleapp.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/votes_layout"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:background="#c0c0c0"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@id/stackVote"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:text="-1"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:text="votes"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/answer_layout"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/votes_layout"
+        android:background="#c0c0c0"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@id/stackAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:text="1"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:text="answer"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/views_layout"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/answer_layout"
+        android:background="#c0c0c0"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@id/stackViews"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:text="12"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:text="views"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/topic_layout"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/views_layout"
+        android:background="#fff"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@id/stackTitle"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="AWS IoT SDK iOS - Getting Thing Shadow via API"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:id="@id/stackLinearTagName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@id/stackTagName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="ios"
+                android:textSize="14dp" />
+
+            <!--<TextView
+                android:id="@+id/tag2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="json"
+                android:textSize="14dp" />
+
+                <TextView
+    android:id="@+id/tagTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="#a000"
+    android:padding="10dp"
+    android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/tag3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="swift"
+                android:textSize="14dp" />-->
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/stackTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:gravity="left"
+            android:layout_marginLeft="10dp"
+            android:text="asked 25 secs ago bagelboy 379 "
+            android:textSize="14dp" />
+    </LinearLayout>
+
+</RelativeLayout>

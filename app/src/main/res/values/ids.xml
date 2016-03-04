@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="stackoverflowWebview" type="id" />
+    <item name="drawerLayout" type="id" />
+    <item name="drawerListItems" type="id" />
+    <item name="content_frame" type="id" />
+    <item name="pager" type="id" />
+    <item name="stackVote" type="id" />
+    <item name="stackAnswer" type="id" />
+    <item name="stackViews" type="id" />
+    <item name="stackTitle" type="id" />
+    <item name="stackTime" type="id" />
+    <item name="stackAuthor" type="id" />
+    <item name="stackTagName" type="id" />
+    <item name="stackAdapterList" type="id" />
+    <item name="stackLinearTagName" type="id" />
+    <item name="stackNameList" type="id"></item>
+</resources>
