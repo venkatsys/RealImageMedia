@@ -11,14 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".MyApplication">
-        <activity android:name=".HomeActivity" android:screenOrientation="portrait">
+        <activity android:name=".stackoverflowlogin.StackoverflowActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".stackoverflowlogin.StackoverflowActivity"/>
+        <activity android:name=".HomeActivity"/>
         <provider
             android:authorities="com.realmedia"
             android:name=".contentprovider.RealImageContentProvider"
