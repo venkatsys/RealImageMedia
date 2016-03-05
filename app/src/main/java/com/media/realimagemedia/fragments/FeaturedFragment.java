@@ -84,7 +84,7 @@ public class FeaturedFragment extends BaseFragment{
 
             }
         };
-        if(ConnectionDetector.isConnectingToInternet(MyApplication.getAppContext()) && Constants.TotalRecords(AppConstants.DONE_QUESTION_SECTION_FEATURED) <= 0) {
+        if(ConnectionDetector.isConnectingToInternet(MyApplication.getAppContext())) {
             RestAPI.getInstance().TogetStackoverflowInterest(OAuth2ClientCredentials.toGetStackTypes(AppConstants.SECTION_FEATURED),sectionData);
         }else {
             Constants.ShowValidationMessage(getActivity(), "Please Check Internet Connection");

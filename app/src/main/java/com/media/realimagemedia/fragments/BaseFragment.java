@@ -27,6 +27,7 @@ public class BaseFragment extends Fragment {
         parent.runOnUiThread(new Runnable() {
             public void run() {
                 progress = ProgressDialog.show(parent,"", "");
+                progress.setTitle("Loading");
                 progress.setCancelable(true);
             }
         });

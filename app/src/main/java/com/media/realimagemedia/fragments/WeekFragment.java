@@ -83,7 +83,7 @@ public class WeekFragment extends BaseFragment {
 
             }
         };
-        if(ConnectionDetector.isConnectingToInternet(MyApplication.getAppContext())&& Constants.TotalRecords(AppConstants.DONE_QUESTION_SECTION_WEEK) <= 0) {
+        if(ConnectionDetector.isConnectingToInternet(MyApplication.getAppContext())) {
             RestAPI.getInstance().TogetStackoverflowWeek(OAuth2ClientCredentials.toGetStackTypes(AppConstants.SECTION_WEEK),sectionData);
         }else {
             Constants.ShowValidationMessage(getActivity(), "Please Check Internet Connection");

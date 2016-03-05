@@ -83,7 +83,7 @@ public class MonthFragment extends BaseFragment {
 
             }
         };
-        if(ConnectionDetector.isConnectingToInternet(MyApplication.getAppContext())&& Constants.TotalRecords(AppConstants.DONE_QUESTION_SECTION_MONTH) <= 0) {
+        if(ConnectionDetector.isConnectingToInternet(MyApplication.getAppContext())) {
             RestAPI.getInstance().TogetStackoverflowMonth(OAuth2ClientCredentials.toGetStackTypes(AppConstants.SECTION_MONTH),sectionData);
         }else {
             Constants.ShowValidationMessage(getActivity(), "Please Check Internet Connection");

@@ -19,6 +19,7 @@ public class AppConstants {
     public static String SECTION_WEEK = "week";
     public static String SECTION_MONTH = "month";
     public static String SECTION_UNANSWER = "unanswered";
+    public static String STACK_LOGIN = "withoutaccessToken";
 
 
 }

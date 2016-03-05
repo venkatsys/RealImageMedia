@@ -2,6 +2,7 @@ package com.media.realimagemedia.stackoverflowlogin;
 
 import android.util.Log;
 
+import com.media.realimagemedia.utils.AppConstants;
 import com.media.realimagemedia.utils.RestAPI;
 
 import java.util.HashMap;
@@ -63,11 +64,13 @@ public class OAuth2ClientCredentials {
      */
     public static HashMap<String, String>  toGetStackTypes(String type){
         HashMap<String, String> params = new HashMap<String, String>();
-        params.put("key", CLIENT_KEY);
         params.put("order", "desc");
         params.put("sort", type);
         params.put("site", "stackoverflow");
-        params.put("access_token", RestAPI.getInstance().getAccesToken());
+        if(!RestAPI.getInstance().getAccesToken().contentEquals(AppConstants.STACK_LOGIN)) {
+            params.put("key", CLIENT_KEY);
+            params.put("access_token", RestAPI.getInstance().getAccesToken());
+        }
         return  params;
     }
     /**
@@ -75,10 +78,12 @@ public class OAuth2ClientCredentials {
      */
     public static HashMap<String, String>  toGetStackAnswer(){
         HashMap<String, String> params = new HashMap<String, String>();
-        params.put("key", CLIENT_KEY);
         params.put("order", "desc");
         params.put("site", "stackoverflow");
-        params.put("access_token", RestAPI.getInstance().getAccesToken());
+        if(!RestAPI.getInstance().getAccesToken().contentEquals(AppConstants.STACK_LOGIN)) {
+            params.put("key", CLIENT_KEY);
+            params.put("access_token", RestAPI.getInstance().getAccesToken());
+        }
         return  params;
     }
     /**

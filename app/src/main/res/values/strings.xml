@@ -8,6 +8,14 @@
         <item>UnAnswer</item>
         <item>Logout</item>
     </string-array>
+    <string-array name="stackItemsBack">
+        <item>Featured</item>
+        <item>Hot</item>
+        <item>Week</item>
+        <item>Month</item>
+        <item>UnAnswer</item>
+        <item>BackToLogin</item>
+    </string-array>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 </resources>

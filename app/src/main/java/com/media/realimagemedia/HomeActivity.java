@@ -1,6 +1,7 @@
 package com.media.realimagemedia;
 
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,11 +19,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.media.realimagemedia.fragments.ActivityToFragmentCommunicator;
+import com.media.realimagemedia.fragments.DemoFragment;
 import com.media.realimagemedia.fragments.SwipeFragment;
 import com.media.realimagemedia.model.SectionLG;
 import com.media.realimagemedia.model.UserLG;
 import com.media.realimagemedia.stackoverflowlogin.Constants;
 import com.media.realimagemedia.stackoverflowlogin.OAuth2ClientCredentials;
+import com.media.realimagemedia.stackoverflowlogin.StackoverflowActivity;
+import com.media.realimagemedia.utils.AppConstants;
 import com.media.realimagemedia.utils.ConnectionDetector;
 import com.media.realimagemedia.utils.RestAPI;
 
@@ -40,7 +44,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     private String[] stackOverflowItems;
     private ActivityToFragmentCommunicator activityToFragmentCommunicator;
     private String userAccesstoken = null;
-
+    private Intent stkMultiIntent = null;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onResume();
         this.userAccesstoken = getIntent().getStringExtra("CurrentUserAccessToken");
         OAuth2ClientCredentials.toSetAccessToken(this.userAccesstoken);
+        toSetNavigationAdapter();
     }
 
     /**
@@ -62,11 +67,18 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         this.drawerListView = (ListView) this.findViewById(R.id.drawerListItems);
         this.mToolbar = (Toolbar) this.findViewById(R.id.toolBar);
         this.mDrawerLayout = (DrawerLayout) this.findViewById(R.id.drawerLayout);
-        this.stackOverflowItems = getResources().getStringArray(R.array.stackItems);
+        toInitdrawerToggle();
+    }
+
+    /**
+     * Method to set Navigation Set Adapter
+     */
+    private void toSetNavigationAdapter() {
+        this.stackOverflowItems = (RestAPI.getInstance().getAccesToken().contentEquals(AppConstants.STACK_LOGIN) ?
+                getResources().getStringArray(R.array.stackItemsBack) : getResources().getStringArray(R.array.stackItems));
         navigationItems = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, stackOverflowItems);
         this.drawerListView.setAdapter(navigationItems);
         this.drawerListView.setOnItemClickListener(this);
-        toInitdrawerToggle();
     }
 
     /**
@@ -98,6 +110,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     private void toLoadHomeScreen() {
         FragmentManager mfragmentManager= getSupportFragmentManager();
         mfragmentManager.beginTransaction().replace(R.id.content_frame, new SwipeFragment()).commit();
+        //mfragmentManager.beginTransaction().replace(R.id.content_frame, new DemoFragment()).commit();
     }
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
@@ -125,6 +138,8 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         if(stackOverflowItems[position].contentEquals("Logout")) {
             Constants.ShowValidationMessage(HomeActivity.this, "Logout");
             onLogoutOfUser();
+        }else if(stackOverflowItems[position].contentEquals("BackToLogin")){
+            toGotoLoginScreen();
         }
         else {
             this.mToolbar.setTitle(stackOverflowItems[position]);
@@ -148,14 +163,24 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
     /**
+     * To Go to LoginScreen
+     */
+    private void toGotoLoginScreen(){
+        stkMultiIntent = new Intent(this, StackMultiLoginActivity.class);
+        startActivity(stkMultiIntent);
+        finish();
+    }
+    /**
      * Method to Logout of the User
      */
-    private void onLogoutOfUser(){
+    private void
+    onLogoutOfUser(){
         SectionLG sectionLG = new SectionLG() {
             @Override
             public void UserStkLG(UserLG userLG) {
                 Constants.ShowValidationMessage(HomeActivity.this, "onLogoutOfUser");
-                finish();
+                toGotoLoginScreen();
+                RestAPI.mInstance = null;
             }
 
             @Override

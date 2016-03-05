@@ -19,7 +19,7 @@ import retrofit.client.Response;
  */
 public class RestAPI {
 
-    protected static RestAPI mInstance = null;
+    public static RestAPI mInstance = null;
     public static RestAdapter adapter;
     public static String ENDPOINT = "https://api.stackexchange.com/2.2/";
     private static StackoverflowAuthenticationAPI stackoverflowAuthenticationAPI = null;
