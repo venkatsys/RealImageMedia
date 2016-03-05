@@ -5,7 +5,7 @@ package com.media.realimagemedia.utils;
  */
 public class AppConstants {
     public static String FEATURED = "Featured";
-    public static String INTEREST = "Interest";
+    public static String ANSWER = "UNANSWER";
     public static String HOT = "Hot";
     public static String WEEK = "Week";
     public static String MONTH = "Month";

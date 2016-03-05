@@ -72,14 +72,6 @@ public class UnansweredFragment extends BaseFragment {
         SectionData sectionData = new SectionData() {
             @Override
             public void DisplaySections(StackoverflowData sectionDatas) {
-
-                /*Log.i("retrofit", "dddddddddddddd=>" + sectionDatas.getItems());
-                ItemElement[] itemElement = sectionDatas.getItems();
-                for(int i = 0 ; i < itemElement.length ; i++){
-                    Owner myOwner = itemElement[i].getOwner();
-                    Log.i("Title is", "this" + itemElement[i].getTitle());
-
-                }*/
                 Constants.EmptyTable(AppConstants.DONE_QUESTION_SECTION_INTEREST);
                 localUpdateff.TogetStackoverflowResults(sectionDatas,AppConstants.DONE_QUESTION_SECTION_INTEREST);
                 localUpdateff.run();
@@ -96,7 +88,7 @@ public class UnansweredFragment extends BaseFragment {
             Constants.ShowValidationMessage(getActivity(), "Please Check Internet Connection");
             ToCheckRecords();
         }
-        toAddClass(AppConstants.FEATURED,FeaturedFragment.class);
+        toAddClass(AppConstants.ANSWER,FeaturedFragment.class);
     }
     /**
      * Method to Return Callbacks to Display the results

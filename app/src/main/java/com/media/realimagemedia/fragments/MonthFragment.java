@@ -89,7 +89,7 @@ public class MonthFragment extends BaseFragment {
             Constants.ShowValidationMessage(getActivity(), "Please Check Internet Connection");
             ToCheckRecords();
         }
-        toAddClass(AppConstants.FEATURED,FeaturedFragment.class);
+        toAddClass(AppConstants.MONTH,FeaturedFragment.class);
     }
     /**
      * Method to Return Callbacks to Display the results
