@@ -110,6 +110,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     private void toLoadHomeScreen() {
         FragmentManager mfragmentManager= getSupportFragmentManager();
         mfragmentManager.beginTransaction().replace(R.id.content_frame, new SwipeFragment()).commit();
+        //mfragmentManager.beginTransaction().replace(R.id.content_frame, new DemoFragment()).commit();
     }
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
