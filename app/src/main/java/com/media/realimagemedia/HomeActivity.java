@@ -60,8 +60,9 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
      */
     private void toInit() {
         this.drawerListView = (ListView) this.findViewById(R.id.drawerListItems);
+        this.mToolbar = (Toolbar) this.findViewById(R.id.toolBar);
         this.mDrawerLayout = (DrawerLayout) this.findViewById(R.id.drawerLayout);
-        stackOverflowItems = getResources().getStringArray(R.array.stackItems);
+        this.stackOverflowItems = getResources().getStringArray(R.array.stackItems);
         navigationItems = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, stackOverflowItems);
         this.drawerListView.setAdapter(navigationItems);
         this.drawerListView.setOnItemClickListener(this);
@@ -72,6 +73,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
      * Method to Init Drawer Toggle
      */
     private void toInitdrawerToggle() {
+        setSupportActionBar(mToolbar);
         this.mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close) {
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -125,6 +127,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
             onLogoutOfUser();
         }
         else {
+            this.mToolbar.setTitle(stackOverflowItems[position]);
             activityToFragmentCommunicator.passDataToFragment(position);
         }
 

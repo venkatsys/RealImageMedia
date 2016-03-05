@@ -15,4 +15,5 @@
     <item name="stackAdapterList" type="id" />
     <item name="stackLinearTagName" type="id" />
     <item name="stackNameList" type="id"></item>
+    <item name="toolBar" type="id"></item>
 </resources>

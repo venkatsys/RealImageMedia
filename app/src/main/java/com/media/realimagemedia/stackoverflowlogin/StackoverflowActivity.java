@@ -39,17 +39,14 @@ public class StackoverflowActivity extends AppCompatActivity{
             @Override
             public void toDisplay(String accessToken) {
                 toHideWebview();
-                Log.i("code", "StackoverflowActivity=>" + accessToken);
                 toGotoHomeScreen(accessToken);
                 Constants.ShowValidationMessage(StackoverflowActivity.this, "success");
             }
 
             @Override
             public void inValidLogin(String errormessage) {
-                toHideWebview();
-                Log.i("code", "StackoverflowActivity=>" + errormessage);
-                init();
                 Constants.ShowValidationMessage(StackoverflowActivity.this,errormessage);
+                init();
             }
 
             @Override

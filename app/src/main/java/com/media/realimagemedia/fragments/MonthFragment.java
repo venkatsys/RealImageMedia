@@ -23,6 +23,7 @@ import com.media.realimagemedia.stackoverflowlogin.Constants;
 import com.media.realimagemedia.stackoverflowlogin.OAuth2ClientCredentials;
 import com.media.realimagemedia.utils.AppConstants;
 import com.media.realimagemedia.utils.ConnectionDetector;
+import com.media.realimagemedia.utils.CustomProgressDialog;
 import com.media.realimagemedia.utils.DisplayResults;
 import com.media.realimagemedia.utils.LocalUpdate;
 import com.media.realimagemedia.utils.RestAPI;
@@ -35,7 +36,7 @@ import retrofit.RetrofitError;
 /**
  * Created by Venkat on 04-03-2016.
  */
-public class MonthFragment extends Fragment {
+public class MonthFragment extends BaseFragment {
 
     private Uri todoUri = null;
     private List<StackOverflow> stackItems;
@@ -64,6 +65,7 @@ public class MonthFragment extends Fragment {
      * @param view
      */
     private void init(View view) {
+        showProgress(getActivity());
         this.stackMultipleItemsList = (RecyclerView) view.findViewById(R.id.stackAdapterList);
         LinearLayoutManager mLinear = new LinearLayoutManager(getActivity());
         mLinear.setOrientation(LinearLayoutManager.VERTICAL);
@@ -87,6 +89,7 @@ public class MonthFragment extends Fragment {
             Constants.ShowValidationMessage(getActivity(), "Please Check Internet Connection");
             ToCheckRecords();
         }
+        toAddClass(AppConstants.FEATURED,FeaturedFragment.class);
     }
     /**
      * Method to Return Callbacks to Display the results
@@ -113,6 +116,7 @@ public class MonthFragment extends Fragment {
         this.customAdapter = new StackoverflowAdapter(getActivity(),this.stackItems);
         this.stackMultipleItemsList.setAdapter(this.customAdapter);
         toHandleItemClick();
+        stopProgress(getActivity());
     }
     /**
      * Method to Handle Item Click

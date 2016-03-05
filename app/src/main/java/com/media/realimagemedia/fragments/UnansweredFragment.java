@@ -35,7 +35,7 @@ import retrofit.RetrofitError;
 /**
  * Created by Venkat on 03-03-2016.
  */
-public class UnansweredFragment extends Fragment {
+public class UnansweredFragment extends BaseFragment {
 
     private Uri todoUri = null;
     private List<StackOverflow> stackItems;
@@ -64,6 +64,7 @@ public class UnansweredFragment extends Fragment {
      * @param view
      */
     private void init(View view) {
+        showProgress(getActivity());
         this.stackMultipleItemsList = (RecyclerView) view.findViewById(R.id.stackAdapterList);
         LinearLayoutManager mLinear = new LinearLayoutManager(getActivity());
         mLinear.setOrientation(LinearLayoutManager.VERTICAL);
@@ -95,6 +96,7 @@ public class UnansweredFragment extends Fragment {
             Constants.ShowValidationMessage(getActivity(), "Please Check Internet Connection");
             ToCheckRecords();
         }
+        toAddClass(AppConstants.FEATURED,FeaturedFragment.class);
     }
     /**
      * Method to Return Callbacks to Display the results
@@ -121,6 +123,8 @@ public class UnansweredFragment extends Fragment {
         this.customAdapter = new StackoverflowAdapter(getActivity(),this.stackItems);
         this.stackMultipleItemsList.setAdapter(this.customAdapter);
         toHandleItemClick();
+        stopProgress(getActivity());
+
     }
     /**
      * Method to Handle Item Click

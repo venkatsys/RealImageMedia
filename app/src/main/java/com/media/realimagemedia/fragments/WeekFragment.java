@@ -35,7 +35,7 @@ import retrofit.RetrofitError;
 /**
  * Created by Venkat on 04-03-2016.
  */
-public class WeekFragment extends Fragment {
+public class WeekFragment extends BaseFragment {
 
     private Uri todoUri = null;
     private List<StackOverflow> stackItems;
@@ -65,6 +65,7 @@ public class WeekFragment extends Fragment {
      * @param view
      */
     private void init(View view) {
+        showProgress(getActivity());
         this.stackMultipleItemsList = (RecyclerView) view.findViewById(R.id.stackAdapterList);
         LinearLayoutManager mLinear = new LinearLayoutManager(getActivity());
         mLinear.setOrientation(LinearLayoutManager.VERTICAL);
@@ -96,6 +97,7 @@ public class WeekFragment extends Fragment {
             Constants.ShowValidationMessage(getActivity(), "Please Check Internet Connection");
             ToCheckRecords();
         }
+        toAddClass(AppConstants.FEATURED,FeaturedFragment.class);
     }
     /**
      * Method to Return Callbacks to Display the results
@@ -122,6 +124,7 @@ public class WeekFragment extends Fragment {
         this.customAdapter = new StackoverflowAdapter(getActivity(),this.stackItems);
         this.stackMultipleItemsList.setAdapter(this.customAdapter);
         toHandleItemClick();
+        stopProgress(getActivity());
     }
     /**
      * Method to Handle Item Click

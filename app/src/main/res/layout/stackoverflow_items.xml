@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.src.mysampleapp.MainActivity">
+    tools:context="com.media.realimagemedia.MainActivity">
 
     <LinearLayout
         android:id="@+id/votes_layout"
@@ -99,13 +99,18 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@id/stackTitle"
+            android:id="@+id/stackTitle"
+            style="?android:textAppearanceMedium"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
             android:maxLines="1"
             android:text="AWS IoT SDK iOS - Getting Thing Shadow via API"
-            android:textSize="16dp" />
+            android:layout_marginLeft="10dp"
+            android:textColor="#c000"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@id/stackLinearTagName"
@@ -115,48 +120,27 @@
 
             <TextView
                 android:id="@id/stackTagName"
+                style="?android:textAppearanceSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:text="ios"
-                android:textSize="14dp" />
+                android:textColor="#6000" />
 
-            <!--<TextView
-                android:id="@+id/tag2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:text="json"
-                android:textSize="14dp" />
 
-                <TextView
-    android:id="@+id/tagTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:background="#a000"
-    android:padding="10dp"
-    android:textColor="#fff" />
-
-            <TextView
-                android:id="@+id/tag3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:text="swift"
-                android:textSize="14dp" />-->
         </LinearLayout>
 
 
         <TextView
             android:id="@+id/stackTime"
+            style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
             android:gravity="left"
-            android:layout_marginLeft="10dp"
             android:text="asked 25 secs ago bagelboy 379 "
-            android:textSize="14dp" />
+            android:textColor="#6000" />
     </LinearLayout>
 
 </RelativeLayout>

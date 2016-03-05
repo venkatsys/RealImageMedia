@@ -58,4 +58,5 @@ public class InterestFragment extends Fragment {
         Constants.ShowValidationMessage(getActivity(), "InterestFragment");
         //RestAPI.getInstance().TogetStackoverflowInterest(sectionData);
     }
+
 }
